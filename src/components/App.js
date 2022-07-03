@@ -4,8 +4,9 @@ import { CreatePost, Home, Page404, Navbar, PostDetail } from './';
 function App() {
   return (
     <div className="container">
-      <Navbar />
+   
       <Router>
+      <Navbar />
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/post/:postId" element={<PostDetail />} />
