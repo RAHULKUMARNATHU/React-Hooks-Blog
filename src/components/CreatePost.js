@@ -1,18 +1,29 @@
 import React, { useState } from 'react';
 
+import { firestore } from '../firebase';
+
 function CreatePost() {
   const [title, setTitle] = useState();
   const [subTitle, setSubTitle] = useState();
   const [content, setContent] = useState();
 
+  function handleSubmit(e) {
+    e.preventDefault();
 
-function handleSubmit(e) {
-  e.preventDefault();
+   
+    firestore.collection('posts').add({
+      title,
+      content,
+      subTitle,
+      createdAt : new Date(),
+    });
 
-  console.log('Title', title);
-  console.log('subTitle', subTitle);
-  console.log('Content', content);
-}
+
+    console.log('Title', title);
+    console.log('subTitle', subTitle);
+    console.log('Content', content);
+
+  }
 
   return (
     <div className="create-post">
