@@ -1,5 +1,5 @@
 // import React, { useState } from 'react';
-import {useFormInput} from '../hooks'
+import { useFormInput } from '../hooks';
 import { firestore } from '../firebase';
 
 function CreatePost() {
@@ -11,9 +11,9 @@ function CreatePost() {
     e.preventDefault();
 
     firestore.collection('posts').add({
-      title    : title.value , 
-      content  : content.value,
-      subTitle : subTitle.value ,
+      title: title.value,
+      content: content.value,
+      subTitle: subTitle.value,
       createdAt: new Date(),
     });
 
@@ -32,15 +32,11 @@ function CreatePost() {
         </div>
         <div className="form-field">
           <label> Subtitle</label>
-          <input
-            {...subTitle}
-          />
+          <input {...subTitle} />
         </div>
         <div className="form-field">
           <label>Content</label>
-          <textarea
-            {...content}
-          ></textarea>
+          <textarea {...content}></textarea>
         </div>
         <button className="create-post-btn">Create Post</button>
       </form>
